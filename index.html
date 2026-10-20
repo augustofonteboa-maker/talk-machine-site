@@ -638,8 +638,18 @@ tbody tr:hover th,tbody tr:hover td:not(.tm){background:rgba(255,255,255,.05)}
 
 /* órbita não invade o título */
 .hero .pill,.hero h1,.hero .lead{position:relative;z-index:6}
-.stage{clip-path:inset(-36px -12% -14% -12%)}
 .hero .stage{margin-top:clamp(64px,8vw,96px)}
+
+/* órbita: esmaece no topo e na base sem recortar nada */
+.orbwrap{position:absolute;left:50%;top:50%;width:200%;aspect-ratio:1;translate:-50% -50%;z-index:0;pointer-events:none;-webkit-mask-image:linear-gradient(to bottom,transparent 29%,#000 38%,#000 66%,transparent 74%);mask-image:linear-gradient(to bottom,transparent 29%,#000 38%,#000 66%,transparent 74%)}
+.hero{overflow-x:clip}
+.orbwrap .orbit{width:61%}
+.orbwrap .orbit.o2{width:49%}
+.panel>*,.scene,.cr{min-width:0}
+.cr .vb{overflow:hidden;min-width:0}
+.cr .vb i{flex:1;width:auto;min-width:0}
+@media(max-width:700px){.jpimg .ext{right:0}}
+.canais{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
 </style>
 </head>
 <body>
@@ -703,7 +713,8 @@ tbody tr:hover th,tbody tr:hover td:not(.tm){background:rgba(255,255,255,.05)}
     <p class="lead">Mesmo que você nunca tenha usado IA, não saiba programar e não queira depender de técnico.</p>
 
     <div class="stage">
-      <div class="orbit" aria-hidden="true">
+      <div class="orbwrap" aria-hidden="true">
+<div class="orbit" aria-hidden="true">
         <span class="orb" style="--x:50%;--y:0%;--c:#ff6bb0"><svg class="i"><use href="#i-ig"/></svg></span>
         <span class="orb" style="--x:97.5%;--y:35%;--c:#7dffb0"><svg class="i"><use href="#i-chat"/></svg></span>
         <span class="orb" style="--x:79.4%;--y:90.5%;--c:#8f9cff"><svg class="i"><use href="#i-cart"/></svg></span>
@@ -713,6 +724,7 @@ tbody tr:hover th,tbody tr:hover td:not(.tm){background:rgba(255,255,255,.05)}
       <div class="orbit o2" aria-hidden="true">
         <span class="orb" style="--x:50%;--y:100%;--c:#ffab49"><svg class="i"><use href="#i-mic"/></svg></span>
         <span class="orb" style="--x:50%;--y:0%;--c:#ff5a3c"><svg class="i"><use href="#i-bolt"/></svg></span>
+      </div>
       </div>
       <span class="chip c1"><svg class="i"><use href="#i-ig"/></svg>Quem comentou</span>
       <span class="chip c2"><svg class="i"><use href="#i-chat"/></svg>Resposta na hora</span>
